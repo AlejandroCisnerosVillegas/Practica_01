@@ -1,3 +1,3 @@
-# Practica 01 
-## _Mantenimiento de Clientes en HTML, CSS, PHP y SQL_
-Mantenimiento de clientes, puedes registrar, modificar y eliminar a los usuarios de una base de datos.
+# Manejo de Clientes 
+## _Área: Prácticas_
+Este código HTML, CSS, PHP y SQL encapsula una práctica de programación web centrada en la gestión de clientes. La interfaz de usuario ofrece una experiencia limpia y accesible, diseñada para dispositivos de diferentes tamaños gracias a su diseño responsivo.
