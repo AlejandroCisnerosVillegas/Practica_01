@@ -1,6 +1,4 @@
 <?php
-
-include("conexion.php");
-include("contenido.html");
-
+    include("conexion.php");
+    include("contenido.html");
 ?>

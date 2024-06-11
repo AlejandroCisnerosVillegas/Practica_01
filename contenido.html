@@ -1,121 +1,184 @@
-<html>
-<head>
-    <link rel="shortcut icon" href="../../assets/img/Favicon-img.png">
-		<title>Practica 01</title>
-    <style>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Manejo de Clientes</title>
+      <link href="../../assets/img/logo.png" rel="icon">
+      <link href="../../assets/img/logo-grande.png" rel="apple-touch-icon">
+      <style>
+          body {
+              background-color: #f0f4f8;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              margin: 0;
+              padding-top: 50px; /* Desplazar contenido hacia abajo */
+          }
 
-        input[type=button],input[type=submit]
-        {
-        background-color: white;
-        border: none;
-        color:black;
-        font-weight: bold;
-        padding: 6px 20px;
-        text-align: center;
-        font-size:16px;
-        margin: 4px 4px;
-        box-shadow: 3px 3px 3px black;
-        position: center;
-        font-family: Arial;
-        }
-        
-        input[type="text"]
-        {
-        font-family: Arial;
-        color:black;
-        background-color:white;
-        padding:4px;
-        text-align: left;
-        font-size: 16px;
-        margin: 4px 4px;
-        box-shadow: 2px 2px 2px black;
-        }
-        
-        body
-        {
-        background-color: #338DFF;
-        }
-        
-        label
-        {
-        font-family: Arial;
-        padding: 4px;
-        font-weight: bold;
-        color: black;
-        text-align: center;
-        align:center;
-        font-size: 18px;
-        }
-        
-        table
-        {
-        background-color: #F0EFEF;
-        padding: 5px 5px;
-        }
-        
-        td
-        {
-        padding: 6px 4px;
-        }
-        
-        </style>
-</head>
+          .container {
+              background-color: #fff;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              padding: 20px;
+              max-width: 600px;
+              width: 100%;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+          }
 
-<body>
-<center>
-<form name="Mantenimiento" action="mantenimiento.php" method="post">
-<table border="1">
+          h1, h2 {
+              color: #333;
+              margin: 10px 0;
+          }
 
-<tr>
-<td colspan="4"><label>Mantenimiento de Clientes</label></td>
-</tr>
+          table {
+              width: 100%;
+              border-collapse: collapse;
+              margin: 20px 0;
+          }
 
-<tr><td colspan="4"><label>Registrar Cliente </label></td></tr>
-<tr>
-	<td><label>Codigo</label></td><td><input type="text" value="" maxlength="7" name="txtcodigo"></td>
-	<td><label>Edad</label></td><td><input type="text" value="" maxlength="2" name="txtedad" maxlength="2" size="10"></td>
-</tr>
-<tr>
-	<td><label>Nombre</label></td><td><input type="text" value="" maxlength="50" name="txtnombre"></td>
-	<td><label>Telefono</label></td><td><input type="text" value="" maxlength="9" size="10" name="txttelefono"></td>
-</tr>
+          th, td {
+              padding: 12px;
+              border-bottom: 1px solid #ddd;
+              text-align: left;
+          }
 
-<tr><td colspan="4" align="center">
-<input type="submit" value="Nuevo" name="limpiardatos" >
-<input type="submit" value="Grabar" name="grabardatos" >
-<input type="submit" value="Modificar" name="modificardatos" >
-<input type="submit" value="Eliminar" name="eliminardatos">
-</td>
-</tr>
+          th {
+              background-color: #338DFF;
+              color: white;
+          }
 
-<tr><td colspan="4"><label>Listado de Clientes </label></td></tr>
+          td {
+              background-color: #f9f9f9;
+          }
 
-<tr><td><label>Codigo</label></td>
-	<td><label>Nombre</label></td>
-	<td><label>Edad</label></td>
-	<td><label>Telefono</label></td>
-</tr>
+          label {
+              display: block;
+              margin: 10px 0 5px;
+              font-weight: bold;
+              color: #555;
+          }
 
-<?php 
-$sql="SELECT * FROM poject_14_clientes";
-$result=mysqli_query($conn,$sql);
+          .form-row {
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              width: 100%;
+          }
 
-while($mostrar=mysqli_fetch_array($result))
-{
-?>
-<tr> <td><?php echo $mostrar['codigo'] ?>
-	<td><?php echo $mostrar['nombre'] ?>
-	<td><?php echo $mostrar['edad'] ?>
-	<td><?php echo $mostrar['telefono'] ?>
+          .form-group {
+              flex: 0 0 calc(50% - 10px); /* Ajuste para centrar */
+              margin-bottom: 15px;
+              text-align: center; /* Centrar el contenido */
+          }
 
-</tr>
-<?php
-}
+          input[type="text"] {
+              width: 100%;
+              padding: 10px;
+              margin: 5px 0;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          }
 
-?>
+          input[type="submit"] {
+              background-color: #338DFF;
+              border: none;
+              color: white;
+              padding: 10px 20px;
+              margin: 10px 5px;
+              cursor: pointer;
+              border-radius: 4px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: background-color 0.3s ease;
+          }
 
-</table>
-</form>
-</center>
-</body>
+          input[type="submit"]:hover {
+              background-color: #0056b3;
+          }
+
+          .button-group {
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+          }
+
+          @media (max-width: 600px) {
+              .container {
+                  padding: 15px;
+              }
+
+              table, th, td {
+                  font-size: 14px;
+              }
+
+              .form-group {
+                  flex: 0 0 100%;
+              }
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container"  style="width: 80%; margin: 0 auto; padding: 20px;">
+          <h1>Mantenimiento de Clientes</h1>
+          <h2>Registrar Cliente</h2>
+          <form name="Mantenimiento" action="mantenimiento.php" method="post">
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="txtcodigo">Código</label>
+                      <input type="text" id="txtcodigo" name="txtcodigo" maxlength="7">
+                  </div>
+                  <div class="form-group">
+                      <label for="txtedad">Edad</label>
+                      <input type="text" id="txtedad" name="txtedad" maxlength="2">
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="txtnombre">Nombre</label>
+                      <input type="text" id="txtnombre" name="txtnombre" maxlength="50">
+                  </div>
+                  <div class="form-group">
+                      <label for="txttelefono">Teléfono</label>
+                      <input type="text" id="txttelefono" name="txttelefono" maxlength="9">
+                  </div>
+              </div>
+
+              <div class="button-group">
+                  <input type="submit" value="Nuevo" name="limpiardatos">
+                  <input type="submit" value="Grabar" name="grabardatos">
+                  <input type="submit" value="Modificar" name="modificardatos">
+                  <input type="submit" value="Eliminar" name="eliminardatos">
+              </div>
+          </form>
+          <h2>Listado de Clientes</h2>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Código</th>
+                      <th>Nombre</th>
+                      <th>Edad</th>
+                      <th>Teléfono</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <?php 
+                  $sql="SELECT * FROM poject_14_clientes";
+                  $result=mysqli_query($conn,$sql);
+
+                  while($mostrar=mysqli_fetch_array($result)) {
+                  ?>
+                  <tr>
+                      <td><?php echo $mostrar['codigo']; ?></td>
+                      <td><?php echo $mostrar['nombre']; ?></td>
+                      <td><?php echo $mostrar['edad']; ?></td>
+                      <td><?php echo $mostrar['telefono']; ?></td>
+                  </tr>
+                  <?php } ?>
+              </tbody>
+          </table>
+      </div>
+  </body>
 </html>
