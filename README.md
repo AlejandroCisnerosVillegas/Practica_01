@@ -16,7 +16,7 @@ La funcionalidad está respaldada por un conjunto de scripts PHP, que se encarga
 
 Este código, además de su funcionalidad práctica, exhibe prácticas recomendadas en el desarrollo web moderno, como el uso de estilos CSS para una presentación visual coherente y la separación de preocupaciones entre la estructura HTML y la lógica de backend en PHP.
 
-**Consulta la versión preliminar de la practica aquí:** [https://practica_01.com](https://alejandrovillegas.net/projects/practice-01/index.php)
+**Consulta la versión preliminar de la practica aquí:** [https://practica_01.com](https://www.alejandrovillegas.dev/projects/practice-01/index.php)
 
 # 📌 Información de la Practica
 
@@ -28,7 +28,7 @@ Esta practica ha sido desarrollado como parte del portafolio de soluciones tecno
 
 - **Fecha de Desarrollo**: 20 de enero de 2018
 
-- **Portafolio de Proyectos**: [www.alejandrovillegas.net](https://www.alejandrovillegas.net/)
+- **Portafolio de Proyectos**: [www.alejandrovillegas.dev](https://www.alejandrovillegas.dev)
 
 # Guía de Instalación y Configuración
 
